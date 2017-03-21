@@ -1,0 +1,58 @@
+v0.4-0  (2017-03-21)
+
+  o A vignette is added, which summarises the package's
+    functionality.
+
+v0.2-3  (2017-03-20)
+
+  o Updates to documentation.
+
+v0.2-2  (2017-02-27)
+
+  o Fixed -- argument 'dec' had been ignored by
+    'readOrg'.
+
+v0.2-1  (2017-01-25)
+
+  o New method 'toOrg.POSIXt', which works for both
+    'POSIXct' and 'POSIXlt'.
+
+v0.2-0  (2016-12-16)
+
+  o The package has been renamed to 'orgutils'.
+
+v0.1-8  (2016-11-21)
+
+  o toOrg.Date: new argument 'inactive' to support
+    inactive timestamps
+
+v0.1-7  (2016-09-06)
+
+  o Fixed -- 'stringsAsFactors' could not be passed to
+    'readOrg'.
+
+v0.1-6  (2016-03-15)
+
+  o toOrg.data.frame: new argument 'row.names', which
+    controls whether row.names are added to the Org
+    table
+
+v0.1-5  (2016-03-02)
+
+  o readOrg: all horizontal separator lines in a table,
+    i.e. those starting with '|-', are now skipped.
+
+v0.1-4  (2016-02-29)
+
+  o Fixed -- in 'toOrg.data.frame', data.frames with
+    Date columns produced an error (thanks to Torsten
+    von Bartenwerffer for reporting)
+
+v0.1-3  (2016-02-05)
+
+  o Fixed -- in 'toOrg.data.frame', column names of
+    factor columns would come out as NA.
+
+v0.1-2  (2016-01-07)
+
+  o Initial version. 

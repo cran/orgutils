@@ -1,0 +1,23 @@
+RUNIT TEST PROTOCOL -- Tue Mar 21 22:22:04 2017 
+*********************************************** 
+Number of test functions: 2 
+Number of errors: 0 
+Number of failures: 0 
+
+ 
+1 Test Suite : 
+orgutils - 2 test functions, 0 errors, 0 failures
+
+
+
+Details 
+*************************** 
+Test Suite: orgutils 
+Test function regexp: ^test.+ 
+Test file regexp: ut_.*[^~]$ 
+Involved directory: 
+~/Packages/orgutils/inst/unitTests 
+--------------------------- 
+Test file: /media/storage/es19/Packages/orgutils/inst/unitTests/ut_orgutils.R 
+test.readOrg: (10 checks) ... OK (0.01 seconds)
+test.toOrg: (8 checks) ... OK (0.01 seconds)
