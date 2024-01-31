@@ -31,7 +31,7 @@ toOrg(Sys.time(), inactive = TRUE)
 ###################################################
 ### code chunk number 5: orgutils_examples.Rnw:104-137
 ###################################################
-file <- 
+file <-
 "
 #+TITLE: My table file
 

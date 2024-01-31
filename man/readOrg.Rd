@@ -10,7 +10,8 @@
 readOrg(file, header = TRUE, dec = ".", comment.char = "",
         encoding = "", strip.white = TRUE,
         stringsAsFactors = FALSE,
-        table.name = NULL, \dots)
+        table.name = NULL, text,
+        table.missing = NULL, \dots)
 }
 \arguments{
   \item{file}{
@@ -32,17 +33,38 @@ readOrg(file, header = TRUE, dec = ".", comment.char = "",
     logical
 }
   \item{stringsAsFactors}{
-    logical; note that the default \code{FALSE} differs from read.csv
-}
+
+    logical: note that the default \code{FALSE} differs
+    from read.csv
+
+  }
   \item{table.name}{
-    character: the name of the table to read (a regular expression)
-}
+
+    character: the name of the table to read (a regular
+    expression)
+
+  }
+  \item{text}{
+
+    character: if \code{file} is not supplied,
+    \code{text} is read via
+    \code{\link{textConnection}}
+
+  }
+  \item{table.missing}{
+
+    what to do if a table specified by
+    \code{table.name} is not found.  Default is to
+    return \code{NULL}. Set to string \code{"stop"} to
+    throw an error.
+
+  }
   \item{\dots}{
     further arguments
-}
+  }
 }
 \details{
-  
+
   When \code{header} is \code{TRUE}, \code{readOrg} will read the first
   10 lines of the file (or the table, when \code{table.name} is
   specified) and try to find an org table header. Formating instructions
@@ -56,13 +78,13 @@ readOrg(file, header = TRUE, dec = ".", comment.char = "",
   For empty files, \code{readOrg} behaves like \link[utils]{read.csv}:
   when completely empty, it fails; when headers are found, a zero-row
   \link{data.frame} is returned.
-  
+
 }
 \value{
   A \code{\link{data.frame}}.
 }
 \references{
-  Org manual \url{http://orgmode.org/manual/index.html}
+  Org manual \url{https://orgmode.org/manual/index.html}
 }
 \author{
   Enrico Schumann
