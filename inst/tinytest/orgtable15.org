@@ -1,0 +1,141 @@
+#+TITLE: Corner cases
+
+#+NAME: T1
+|---+---|
+|---+---|
+|---+---|
+|---+---|
+|---+---|
+| A | X |
+|---+---|
+| 1 | 2 |
+
+#+begin_src R :results output
+orgutils::readOrg("orgtable15.org", table.name = "T1")
+#+end_src
+
+#+RESULTS:
+:   A X
+: 1 1 2
+
+when no table is specified, the first is used
+#+begin_src R :results output
+orgutils::readOrg("orgtable15.org",
+                  strip.horiz.rules = FALSE)
+#+end_src
+
+#+RESULTS:
+:   --- ---
+: 1 --- ---
+: 2 --- ---
+: 3 --- ---
+: 4 --- ---
+: 5   A   X
+: 6 --- ---
+: 7   1   2
+
+
+#+begin_src R :results output
+orgutils::readOrg("orgtable15.org",
+                  strip.horiz.rules = FALSE,
+                  header = FALSE)
+#+end_src
+
+#+RESULTS:
+:    V2  V3
+: 1 --- ---
+: 2 --- ---
+: 3 --- ---
+: 4 --- ---
+: 5 --- ---
+: 6   A   X
+: 7 --- ---
+: 8   1   2
+
+
+
+An empty table with 6 horizontal rules.
+#+NAME: T2
+|---+---|
+|---+---|
+|---+---|
+|---+---|
+|---+---|
+|---+---|
+
+
+#+NAME: T3
+| 1 | 2 |
+
+
+#+NAME: T4
+| 1 | 2 |
+|---+---|
+|---+---|
+|---+---|
+|---+---|
+|---+---|
+
+#+begin_src R :results output
+orgutils::readOrg("orgtable15.org", table.name = "T4",
+                  strip.horiz.rules = FALSE)
+#+end_src
+
+#+RESULTS:
+:     1   2
+: 1 --- ---
+: 2 --- ---
+: 3 --- ---
+: 4 --- ---
+: 5 --- ---
+
+
+https://orgmode.org/manual/Column-Groups.html
+
+#+NAME: Groups
+| N | N^2 | N^3 | N^4 | sqrt(n) | sqrt[4](N) |
+|---+-----+-----+-----+---------+------------|
+| / |  <  |     |  >  |       < |          > |
+| 1 |  1  |  1  |  1  |       1 |          1 |
+| 2 |  4  |  8  | 16  |  1.4142 |     1.1892 |
+| 3 |  9  | 27  | 81  |  1.7321 |     1.3161 |
+|---+-----+-----+-----+---------+------------|
+
+#+begin_src R :results output
+orgutils::readOrg("orgtable15.org", table.name = "Groups$")
+#+end_src
+
+#+RESULTS:
+:   N N^2 N^3 N^4 sqrt(n) sqrt[4](N)
+: 1 1   1   1   1  1.0000     1.0000
+: 2 2   4   8  16  1.4142     1.1892
+: 3 3   9  27  81  1.7321     1.3161
+
+
+#+NAME: Groups2
+| N | N^2 | N^3 | N^4 | sqrt(n) | sqrt[4](N) |
+|---+-----+-----+-----+---------+------------|
+| / | <   |     |     | <       |            |
+
+#+begin_src R :results output
+orgutils::readOrg("orgtable15.org", table.name = "Groups2")
+#+end_src
+
+#+RESULTS:
+: [1] N          N^2        N^3        N^4        sqrt(n)    sqrt[4](N)
+: <0 rows> (or 0-length row.names)
+
+
+* POSIXt
+
+
+#+begin_src R :results output
+orgutils::toOrg(data.frame(T = Sys.time()))
+#+end_src
+
+#+RESULTS:
+: | T                          |
+: |----------------------------|
+: | 2025-07-29 17:14:11.183724 |
+
+#+end_src
